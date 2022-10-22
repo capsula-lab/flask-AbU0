@@ -7,6 +7,17 @@ function App() {
         <p>
           loading...
         </p>
+        <form>
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+  <label>
+    e-mail:
+    <input type="text" name="e-mail" />
+  </label>
+  <input type="submit" value="Submit" />
+</form>
       </header>
     </div>
   );
