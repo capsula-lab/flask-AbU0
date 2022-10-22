@@ -19,7 +19,7 @@ def create_task(name):
 @app.route('/api/get/getTheGuests')
 def get_guests():
     f = open("guests.txt", "r")
-    guests = f.read(4)
+    guests = f.read()
     f.close()
     return jsonify(guests)
 
