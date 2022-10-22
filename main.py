@@ -1,16 +1,13 @@
 import os
-from flask import Flask, send_from_directory
+from flask import Flask, render_template
 
-app = Flask(__name__, static_folder='frontend/build')
+app = Flask(__name__, static_url_path='',
+                  static_folder='frontend/build',
+                  template_folder='frontend/build')
 
-# Serve React App
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+@app.route("/")
+def hello():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
