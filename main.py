@@ -17,7 +17,7 @@ def create_task(name):
     return "alles gut"
 
 @app.route('/api/get/getTheGuests')
-def create_task(name):
+def get_guests():
     f = open("guests.txt", "r")
     guests = f.read(4)
     f.close()
