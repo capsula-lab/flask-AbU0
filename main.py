@@ -20,3 +20,10 @@ def create_task(name):
     f.write(name)
     f.close()
     return "alles gut"
+
+@app.route('/api/get/getTheGuests')
+def create_task(name):
+    f = open("guests.txt", "a")
+    guests = f.read()
+    f.close()
+    return guests
