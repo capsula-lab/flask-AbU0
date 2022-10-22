@@ -9,10 +9,10 @@ app = Flask(__name__, static_url_path='',
 def hello():
     return render_template("index.html")
 
-@app.route('/api/<name>')
-def create_task(name):
+@app.route('/api/<name>/<email>')
+def create_task(name, email):
     f = open("guests.txt", "a")
-    f.write(name)
+    f.write(name, email)
     f.close()
     return "alles gut"
 
