@@ -12,8 +12,11 @@ def hello():
 @app.route('/api/<name>/<email>')
 def create_task(name, email):
     f = open("guests.txt", "a")
+    f.write("Name:")
     f.write(name)
+    f.write("Email:")
     f.write(email)
+    f.write("|||")
     f.close()
     return "alles gut"
 
