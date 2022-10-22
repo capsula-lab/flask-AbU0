@@ -2,8 +2,8 @@ import os
 from flask import Flask, render_template
 
 app = Flask(__name__, static_url_path='',
-                  static_folder='',
-                  template_folder='')
+                  static_folder='frontend/build',
+                  template_folder='frontend/build')
 
 @app.route("/")
 def hello():
