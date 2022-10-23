@@ -1,21 +1,13 @@
 ---
-title: Flask
-description: A popular minimal server framework for Python.
+title: An RSVP form minimal website 
+description: flask backend + google sheets api, React frontend
 tags:
   - python
   - flask
+  - javascript
+  - react
 ---
 
-# Python Flask Example
-
-This is a [Flask](https://flask.palletsprojects.com/en/1.1.x/) app that serves a simple JSON response.
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/zUcpux)
-
-## ✨ Features
-
-- Python
-- Flask
 
 ## 💁‍♀️ How to use
 
