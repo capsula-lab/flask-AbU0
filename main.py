@@ -21,7 +21,7 @@ def hello():
 @app.route('/getSheet', methods=["GET"])
 def getSheet():
     values_list = gsheet.col_values(1)
-    length = values_list.length();
+    length = len(values_list);
     return jsonify(length)
 
 @app.route('/api/<name>/<email>')
