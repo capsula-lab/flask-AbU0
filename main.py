@@ -8,9 +8,13 @@ app = Flask(__name__, static_url_path='',
                   static_folder='react',
                   template_folder='react')
 
+jsonappConfig.config.from_envvar('GSHEET_SECRETS')
 
-credential = ServiceAccountCredentials.from_json_keyfile_name("secrets.json",
-                                                              ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+
+# credential = ServiceAccountCredentials.from_json_keyfile_name("secrets.json",
+#                                                            ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+
+credential = ServiceAccountCredentials.fromPkcs8(os.environ['clientId'], os.environ['clientEmail'], os.environ['privateKeyPkcs8'], os.environ['privateKeyId'], ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
 client = gspread.authorize(credential)
 gsheet = client.open("RSVP").sheet1
 
