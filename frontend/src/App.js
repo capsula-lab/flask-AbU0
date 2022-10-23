@@ -6,7 +6,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Formulario />
+      <div>
+        <form action="https://flask-production-8840.up.railway.app/add" method="GET">
+          <input type="text" name="name" />
+          <input type="text" name="email" />
+          <button type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
       </header>
     </div>
   );

@@ -1,13 +1,27 @@
 import os
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, abort
+# Google Sheets API Setup
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__, static_url_path='',
                   static_folder='react',
                   template_folder='react')
 
+
+
+credential = ServiceAccountCredentials.from_json_keyfile_name("secrets.json",
+                                                              ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+client = gspread.authorize(credential)
+gsheet = client.open("RSVP").sheet1
+
 @app.route("/")
 def hello():
     return render_template("index.html")
+
+@app.route('/getSheet', methods=["GET"])
+def getSheet():
+    return jsonify(gsheet.get_all_records())
 
 @app.route('/api/<name>/<email>')
 def create_task(name, email):
