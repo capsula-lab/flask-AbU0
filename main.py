@@ -22,38 +22,18 @@ def hello():
 def getSheet():
     values_list = gsheet.col_values(1)
     length = len(values_list);
-    return jsonify(length)
-
-@app.route('/api/<name>/<email>')
-def create_task(name, email):
-    f = open("guests.txt", "a")
-    f.write("Name:")
-    f.write(name)
-    f.write("Email:")
-    f.write(email)
-    f.write("|||")
-    f.close()
-    return "alles gut"
+    return jsonify(values_list)
 
 @app.route('/add')
 def createcm():
    name  = request.args.get('name', None)
    email  = request.args.get('email', None)
-   f = open("guests.txt", "a")
-   f.write("Name:")
-   f.write(name)
-   f.write("Email:")
-   f.write(email)
-   f.write("|||")
-   f.close()
-   return "alles gut2"
+   values_list = gsheet.col_values(1)
+   target = len(values_list) + 1;
+   gsheet.update_cell(1, target, name)
+   gsheet.update_cell(2, target, email)
+   return render_template("index.html")
 
-@app.route('/api/get/getTheGuests')
-def get_guests():
-    f = open("guests.txt", "r")
-    guests = f.read()
-    f.close()
-    return jsonify(guests)
 
 
 if __name__ == '__main__':
