@@ -30,8 +30,8 @@ def createcm():
    email  = request.args.get('email', None)
    values_list = gsheet.col_values(1)
    target = len(values_list) + 1;
-   gsheet.update_cell(1, target, name)
-   gsheet.update_cell(2, target, email)
+   gsheet.update_cell(target, 1, name)
+   gsheet.update_cell(target, 2, email)
    return render_template("index.html")
 
 
