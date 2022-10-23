@@ -22,14 +22,6 @@ def create_keyfile_dict():
   "client_x509_cert_url": os.environ["client_x509_cert_url"]
 }
     return variables_keys
-
-# credential = ServiceAccountCredentials.from_json_keyfile_name("secrets.json",
-#                                                            ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
-
-credential = ServiceAccountCredentials.from_json_keyfile_dict(create_keyfile_dict(), ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
-client = gspread.authorize(credential)
-gsheet = client.open("RSVP").sheet1
-
 @app.route("/")
 def hello():
     return render_template("index.html")
@@ -38,6 +30,9 @@ def hello():
 def createcm():
    name  = request.args.get('name', None)
    email  = request.args.get('email', None)
+   credential = ServiceAccountCredentials.from_json_keyfile_dict(create_keyfile_dict(), ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+   client = gspread.authorize(credential)
+   gsheet = client.open("RSVP").sheet1
    values_list = gsheet.col_values(1)
    target = len(values_list) + 1;
    gsheet.update_cell(target, 1, name)
