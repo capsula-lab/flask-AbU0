@@ -9,7 +9,6 @@ app = Flask(__name__, static_url_path='',
                   template_folder='react')
 
 
-
 credential = ServiceAccountCredentials.from_json_keyfile_name("secrets.json",
                                                               ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
 client = gspread.authorize(credential)
@@ -21,7 +20,9 @@ def hello():
 
 @app.route('/getSheet', methods=["GET"])
 def getSheet():
-    return jsonify(gsheet.get_all_records())
+    values_list = gsheet.col_values(1)
+    length = values_list.length();
+    return jsonify(length)
 
 @app.route('/api/<name>/<email>')
 def create_task(name, email):
