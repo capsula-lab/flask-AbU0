@@ -8,11 +8,25 @@ app = Flask(__name__, static_url_path='',
                   static_folder='react',
                   template_folder='react')
 
+def create_keyfile_dict():
+    variables_keys = {
+  "type": os.environ["type"],
+  "project_id": os.environ["project_id":],
+  "private_key_id": os.environ["private_key_id"],
+  "private_key": os.environ["private_key"],
+  "client_email": os.environ[ "client_email"],
+  "client_id": "client_id",
+  "auth_uri": os.environ["auth_uri"],
+  "token_uri": os.environ["token_uri"],
+  "auth_provider_x509_cert_url": os.environ[ "auth_provider_x509_cert_url"],
+  "client_x509_cert_url": os.environ["client_x509_cert_url"]
+}
+    return variables_keys
 
 # credential = ServiceAccountCredentials.from_json_keyfile_name("secrets.json",
 #                                                            ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
 
-credential = ServiceAccountCredentials.fromPkcs8(os.environ['clientId'], os.environ['clientEmail'], os.environ['privateKeyPkcs8'], os.environ['privateKeyId'], ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+credential = ServiceAccountCredentials.from_json_keyfile_dict(create_keyfile_dict(), ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
 client = gspread.authorize(credential)
 gsheet = client.open("RSVP").sheet1
 
