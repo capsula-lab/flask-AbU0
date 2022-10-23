@@ -19,8 +19,9 @@
   color: white;
 }
 
-.input { 
+input { 
   display: block;
+  margin-bottom: 10px;
 }
 
 @keyframes App-logo-spin {

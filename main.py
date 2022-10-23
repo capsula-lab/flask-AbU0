@@ -18,12 +18,6 @@ gsheet = client.open("RSVP").sheet1
 def hello():
     return render_template("index.html")
 
-@app.route('/getSheet', methods=["GET"])
-def getSheet():
-    values_list = gsheet.col_values(1)
-    length = len(values_list);
-    return jsonify(values_list)
-
 @app.route('/add')
 def createcm():
    name  = request.args.get('name', None)

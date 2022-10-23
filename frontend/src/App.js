@@ -8,7 +8,9 @@ function App() {
       <header className="App-header">
       <div>
         <form action="https://flask-production-8840.up.railway.app/add" method="GET">
+          <label>name:  </label>
           <input type="text" name="name" />
+          <label>email:  </label>
           <input type="text" name="email" />
           <button type="submit">
             Submit
@@ -21,3 +23,5 @@ function App() {
 }
 
 export default App;
+
+
