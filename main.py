@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, jsonify
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__, static_url_path='',
                   static_folder='react',
@@ -19,6 +19,11 @@ def create_task(name, email):
     f.write("|||")
     f.close()
     return "alles gut"
+
+@app.route('/add/')
+def createcm():
+   summary  = request.args.get('summary', None)
+   change  = request.args.get('change', None)
 
 @app.route('/api/get/getTheGuests')
 def get_guests():
