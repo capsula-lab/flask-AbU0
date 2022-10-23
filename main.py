@@ -10,7 +10,7 @@ app = Flask(__name__, static_url_path='',
 
 
 
-credential = ServiceAccountCredentials.from_json_keyfile_name("secrets.json",
+credential = ServiceAccountCredentials.from_json_keyfile_name("./secrets.json",
                                                               ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
 client = gspread.authorize(credential)
 gsheet = client.open("RSVP").sheet1
