@@ -20,7 +20,7 @@ def create_task(name, email):
     f.close()
     return "alles gut"
 
-@app.route('/add/')
+@app.route('/add')
 def createcm():
    summary  = request.args.get('summary', None)
    change  = request.args.get('change', None)
