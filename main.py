@@ -22,8 +22,16 @@ def create_task(name, email):
 
 @app.route('/add')
 def createcm():
-   summary  = request.args.get('summary', None)
-   change  = request.args.get('change', None)
+   name  = request.args.get('name', None)
+   email  = request.args.get('email', None)
+   f = open("guests.txt", "a")
+   f.write("Name:")
+   f.write(name)
+   f.write("Email:")
+   f.write(email)
+   f.write("|||")
+   f.close()
+   return "alles gut2"
 
 @app.route('/api/get/getTheGuests')
 def get_guests():
