@@ -10,8 +10,8 @@ app = Flask(__name__, static_url_path='',
 
 def create_keyfile_dict():
     variables_keys = {
-  "type": os.environ["type"],
-  "project_id": os.environ["project_id":],
+  "type": os.environ['type'],
+  "project_id": os.environ["project_id"],
   "private_key_id": os.environ["private_key_id"],
   "private_key": os.environ["private_key"],
   "client_email": os.environ[ "client_email"],
