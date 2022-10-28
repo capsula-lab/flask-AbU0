@@ -40,7 +40,7 @@ def createcm():
    return render_template("index.html")
 
 @app.route("/add/v2",methods=['POST'])
-def add_year(year):
+def addSomeone():
     name = request.form['name']
     email = request.form['email']
     credential = ServiceAccountCredentials.from_json_keyfile_dict(create_keyfile_dict(), ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
