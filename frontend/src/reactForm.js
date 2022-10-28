@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 class NameForm extends React.Component {
     constructor(props) {
@@ -19,8 +20,11 @@ class NameForm extends React.Component {
       }
   
     handleSubmit(event) {
-      alert('We will be in touch' + this.state.name + ": )");
+      alert('We will be in touch');
       event.preventDefault();
+      let url = "https://www.capsula.ooo/add?name=" + this.state.name + "&email=" + this.state.email; 
+      fetch(url)
+        .then(response => response.json())
     }
   
     render() {

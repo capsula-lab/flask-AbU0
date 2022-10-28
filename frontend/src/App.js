@@ -19,21 +19,9 @@ function App() {
           <Col>
           </Col>
           <Col>
-             <div id="root">
-               <NameForm />
-             </div>
-            <div id="form">
-              <p>Register here</p> 
-              <form action="https://www.capsula.ooo/add" method="GET">
-                <label>name</label>
-                <input type="text" name="name" />
-                <label>email</label>
-                <input type="text" name="email" />
-                <button id="botao" type="submit">
-                  Go
-                </button>    
-              </form>  
-            </div>
+               <div id="form">
+                  <NameForm />
+               </div>
           </Col>
           <Col>
             <Player />
