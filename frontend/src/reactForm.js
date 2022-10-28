@@ -20,7 +20,7 @@ class NameForm extends React.Component {
       }
   
     handleSubmit(event) {
-      alert('We will be in touch');
+      alert('We will be in touch with the address');
       event.preventDefault();
       let url = "https://www.capsula.ooo/add?name=" + this.state.name + "&email=" + this.state.email; 
       fetch(url)
@@ -30,6 +30,7 @@ class NameForm extends React.Component {
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
+        <p>RSVP here</p>
           <label>
             name
             <input type="text" value={this.state.name} onChange={this.handleChangeName} />
@@ -38,7 +39,7 @@ class NameForm extends React.Component {
           <input type="text" value={this.state.email} onChange={this.handleChangeEmail} />
           </label>
                 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Go"/>
         </form>
       );
     }
