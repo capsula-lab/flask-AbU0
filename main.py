@@ -39,7 +39,18 @@ def createcm():
    gsheet.update_cell(target, 2, email)
    return render_template("index.html")
 
-
+@app.route("/add/v2",methods=['POST'])
+def add_year(year):
+    name = request.form['name']
+    email = request.form['email']
+    credential = ServiceAccountCredentials.from_json_keyfile_dict(create_keyfile_dict(), ["https://spreadsheets.google.com/feeds",                                                               "https://www.googleapis.com/auth/spreadsheets",                                                        "https://www.googleapis.com/auth/drive.file",                                                        "https://www.googleapis.com/auth/drive"])
+    client = gspread.authorize(credential)
+    gsheet = client.open("RSVP").sheet1
+    values_list = gsheet.col_values(1)
+    target = len(values_list) + 1;
+    gsheet.update_cell(target, 1, name)
+    gsheet.update_cell(target, 2, email)
+   
 
 if __name__ == '__main__':
     app.run(use_reloader=True, port=5000, threaded=True)

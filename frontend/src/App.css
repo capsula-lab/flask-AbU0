@@ -3,10 +3,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 #all {
-  backgroundColor: #000000;
-  background-color: #000000;
-  
+  background-color: #000000;  
 }
 
 .App-header {
@@ -36,5 +35,33 @@ img {
 }
 
 label {
+  color: white;
+}
+
+
+#form {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  margin: auto;
+}
+
+button {
+  margin-top: 10px;
+  background-color: #000000;
+  color: white;
+}
+
+#botao {
+  margin-top: 10px;
+}
+
+#mediaPlaya {
+  display: none;
+}
+
+p {
   color: white;
 }
