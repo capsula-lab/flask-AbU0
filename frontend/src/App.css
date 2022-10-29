@@ -30,7 +30,7 @@ input {
 }
 
 img {
-  max-width: 600px;
+  width:100%;
   height: auto;
 }
 
@@ -39,13 +39,20 @@ label {
 }
 
 
-#form {
-  width: 100px;
+form {
+ /* width: 100px;
   height: 100px;
   position: absolute;
   top:0;
   bottom: 0;
   margin: auto;
+  */
+}
+
+#goButton {
+  background-color: #000000;
+  color: white;
+  margin-top: 10px;
 }
 
 button {
