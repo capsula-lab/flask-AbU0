@@ -4,6 +4,7 @@ import audio1 from './/audio1.mp3';
 function Player() {
 
   function play() {
+    switchPlay = true
     var audio = document.getElementById("audio");
     audio.play();
     console.log("on click working")
